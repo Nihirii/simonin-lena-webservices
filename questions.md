@@ -10,7 +10,7 @@ en soit PUT efface la donné existante et la "recrée" alors que PATCH la modifi
 
 Pourquoi un call vers mon api depuis Postman fonctionne mais semble bloqué lorsque le même call est exécuté par Firefox?
 
-Postman simplifie les tests d'API en ne tenant pas compte des problèmes de sécurité comme CORS (Cross-Origin Resource Sharing). En revanche, les navigateurs comme Firefox respectent les politiques de sécurité de CORS, ce qui peut bloquer les requêtes si elles ne respectent pas ces règles. 
+Postman simplifie les tests d'API en ne tenant pas compte des problèmes de sécurité comme CORS (Cross-Origin Resource Sharing). En revanche, les navigateurs comme Firefox respectent les politiques de sécurité de CORS, ce qui peut bloquer les requêtes si elles ne respectent pas ces règles.
 
 ## NGINX/APACHE
 
@@ -23,4 +23,5 @@ Un serveur web comme Apache ou Nginx offre une gestion efficace des requêtes HT
 Citez 3 axes vus en cours pour améliorer les performance d'une api Rest
 
 Mise en cache des donnees pour eviter leur recuperation sur le serveur a chaque requete
-
+utiliser des indexs en bdd mettre en place un système de cache
+Creation de types afin d'alleger les requetes
