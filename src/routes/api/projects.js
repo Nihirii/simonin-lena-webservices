@@ -10,15 +10,61 @@ router.use(authGard.protect);
 
 router.use((req, res, next) => {
   if (!req.isAdmin) {
-    return res.status(403).send("Forbidden: Only admins can perform this action");
+    return res
+      .status(403)
+      .send("Forbidden: Only admins can perform this action");
   }
   next();
 });
 
-router.post("/", projectsController.createProject);
-router.put("/:id", projectsController.updateProject);
-router.patch("/:id", projectsController.patchProject);
+router.post(
+  "/",
+  exposeMiddleware.protect,
+  (req, res, next) => {
+    if (req.isAdmin) {
+      next();
+    } else {
+      res.status(403).send("Forbidden");
+    }
+  },
+  projectsController.createProject
+);
+router.put(
+  "/:id",
+  exposeMiddleware.protect,
+  (req, res, next) => {
+    if (req.isAdmin) {
+      next();
+    } else {
+      res.status(403).send("Forbidden");
+    }
+  },
+  projectsController.updateProject
+);
+router.patch(
+  "/:id",
+  exposeMiddleware.protect,
+  (req, res, next) => {
+    if (req.isAdmin) {
+      next();
+    } else {
+      res.status(403).send("Forbidden");
+    }
+  },
+  projectsController.patchProject
+);
 
-router.get("/:id", projectsController.oneProject);
+router.get(
+  "/:id",
+  exposeMiddleware.protect,
+  (req, res, next) => {
+    if (req.isAdmin) {
+      next();
+    } else {
+      res.status(403).send("Forbidden");
+    }
+  },
+  projectsController.oneProject
+);
 
 export default router;
