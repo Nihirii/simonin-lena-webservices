@@ -14,6 +14,13 @@ const devSchema = new Schema(
       },
     ],
     password: { type: String },
+    projet: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "devs",
+      },
+    ],
+
     role: String,
     refreshToken: String,
   },
