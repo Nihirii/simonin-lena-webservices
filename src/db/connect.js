@@ -25,7 +25,7 @@ const MONGO_URI_STRING = [
 
 const connect = () => {
 
-    mongoose.connect(MONGO_URI_STRING)
+    return mongoose.connect(MONGO_URI_STRING)
       .then(() => {
         return console.info(`Successfully connected to ${MONGO_CLUSTER}@${MONGO_DATABASE}`);
       })
@@ -33,7 +33,5 @@ const connect = () => {
         console.error('Error connecting to database: ', error);
         return process.exit(1);
       });
-
-    mongoose.connection.on('disconnected', connect);
 };
 export default connect
